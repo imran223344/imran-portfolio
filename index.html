@@ -3,283 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imran Masood - Receptionist & IT Professional</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Imran Masood - Receptionist / IT Professional | CV & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0b2545;
-            --secondary-color: #134074;
-            --accent-color: #8da9c4;
-            --bg-color: #f8f9fa;
-            --text-color: #333333;
-            --white: #ffffff;
+            --primary: #0f2c59;
+            --secondary: #176b87;
+            --accent: #3282b8;
+            --bg-light: #f8f9fa;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --border-color: #e0e0e0;
+            --sidebar-bg: #f1f6f9;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #eef2f5;
+            color: var(--text-dark);
+            padding: 20px;
             line-height: 1.6;
         }
 
-        /* Header & Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .profile-container {
+        .resume-container {
             max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
         }
 
-        .profile-img {
-            width: 160px;
-            height: 160px;
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 30px 20px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
             border-radius: 50%;
-            border: 4px solid var(--white);
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-
-        header h3 {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--accent-color);
-        }
-
-        .badge-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 15px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* Main Container */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .contact-list, .skills-list, .education-list, .languages-list {
+            list-style: none;
+            margin-bottom: 25px;
         }
 
-        section {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+        .contact-list li, .education-list li, .languages-list li {
+            margin-bottom: 12px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            word-break: break-word;
         }
 
-        section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
+        .contact-list i, .education-list i, .languages-list i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .skills-list li {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* CV Viewer Section */
-        .cv-preview-box {
-            text-align: center;
+        .skills-list i {
+            color: var(--secondary);
+            font-size: 12px;
         }
 
-        .cv-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+        /* Main Content Styling */
+        .main-content {
+            padding: 30px 30px;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(19, 64, 116, 0.3);
+        .header-main {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
         }
 
-        .btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
+        .header-main h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        /* Experience & Education Lists */
-        .job-item, .edu-item {
-            margin-bottom: 20px;
-        }
-
-        .job-title {
+        .header-main h2 {
+            font-size: 16px;
             font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge i {
+            color: var(--secondary);
+        }
+
+        .profile-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .experience-title h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .experience-title span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary);
         }
 
         .company-name {
+            font-size: 13.5px;
             font-style: italic;
-            color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
 
-        ul.details-list {
+        .experience-details {
             list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 8px;
+            margin-left: 18px;
+            font-size: 13.5px;
+            color: var(--text-muted);
         }
 
-        ul.details-list li {
+        .experience-details li {
             margin-bottom: 5px;
-            font-size: 0.95rem;
-            color: #444;
         }
 
-        /* Skills Grid */
-        .skills-grid {
+        .personal-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
+            grid-template-columns: 140px 1fr;
+            row-gap: 8px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
         }
 
-        .skill-tag {
-            background: #f1f5f9;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-color);
-            font-weight: 500;
+        .personal-info-grid .label {
+            font-weight: 600;
+            color: var(--primary);
         }
 
-        .skill-tag i {
-            color: var(--secondary-color);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .contact-card {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .contact-card i {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            font-size: 0.9rem;
-        }
-
-        @media(max-width: 768px) {
-            header h1 { font-size: 2rem; }
+        .references-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--secondary);
+            padding: 12px 15px;
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--text-muted);
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div class="profile-container">
-            <!-- آپ اپنی تصویر کا نام یہاں سیٹ کر سکتے ہیں -->
-            <img src="file_000000009b888208a3551fae3554579c.png" alt="Imran Masood" class="profile-img">
-            <div>
+    <!-- Resume Container -->
+    <div class="resume-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-img-container">
+                <img src="1000803273_2.jpg" alt="Imran Masood">
+            </div>
+
+            <div class="section-title"><i class="fas fa-address-book"></i> Contact</div>
+            <ul class="contact-list">
+                <li><i class="fas fa-map-marker-alt"></i> 132bv Guld Station, Bhara Khu, Islamabad</li>
+                <li><i class="fas fa-phone-alt"></i> 0305-505-4165<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0319-071-8351</li>
+                <li><i class="fas fa-envelope"></i> imran223344@gmail.com</li>
+            </ul>
+
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+            <ul class="education-list">
+                <li>
+                    <i class="fas fa-caret-right"></i>
+                    <div>
+                        <strong>3 Year DAE in Electrical Eng.</strong><br>
+                        Islamabad Model School for boys (2001–2012)
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-caret-right"></i>
+                    <div>
+                        <strong>Polytechnic Diploma</strong><br>
+                        Bhara Khu Poly Tech College ISB (2012–2015)
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-caret-right"></i>
+                    <div>
+                        <strong>Professional Certificate</strong><br>
+                        Al-Madtood Institute, Islamabad (2012)
+                    </div>
+                </li>
+            </ul>
+
+            <div class="section-title"><i class="fas fa-cogs"></i> Skills</div>
+            <ul class="skills-list">
+                <li><i class="fas fa-check-circle"></i> Excellent Communication</li>
+                <li><i class="fas fa-check-circle"></i> Customer Service & Handling</li>
+                <li><i class="fas fa-check-circle"></i> Front Desk & Reception Mgmt</li>
+                <li><i class="fas fa-check-circle"></i> Telephone & Email Handling</li>
+                <li><i class="fas fa-check-circle"></i> Visitor Management</li>
+                <li><i class="fas fa-check-circle"></i> Microsoft Office (Word, Excel)</li>
+                <li><i class="fas fa-check-circle"></i> Time Management</li>
+                <li><i class="fas fa-check-circle"></i> Problem Solving & Multi-tasking</li>
+                <li><i class="fas fa-check-circle"></i> Professional Demeanor</li>
+            </ul>
+
+            <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+            <ul class="languages-list">
+                <li><i class="fas fa-globe"></i> <strong>Urdu:</strong> Native</li>
+                <li><i class="fas fa-globe"></i> <strong>English:</strong> Good</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header-main">
                 <h1>Imran Masood</h1>
-                <h3>Receptionist / IT Professional</h3>
+                <h2>Receptionist / IT Professional</h2>
+                <div class="meta-badges">
+                    <div class="badge"><i class="fas fa-calendar-check"></i> Availability: Currently Available (Free)</div>
+                    <div class="badge"><i class="fas fa-map-pin"></i> Location: Bhara Khu, Islamabad</div>
+                </div>
             </div>
-            <div class="badge-container">
-                <div class="badge"><i class="fa-solid fa-circle-check"></i> Currently Available (Free)</div>
-                <div class="badge"><i class="fa-solid fa-location-dot"></i> Bhara Khu, Islamabad</div>
-            </div>
-        </div>
-    </header>
 
-    <div class="container">
+            <div class="section-title"><i class="fas fa-user"></i> Profile</div>
+            <p class="profile-desc">
+                A motivated and well-organized professional with strong communication and interpersonal skills. Experienced in handling front desk operations, welcoming visitors, managing calls, and providing excellent customer service. Adept at multitasking in a fast-paced environment while maintaining professionalism and confidentiality.
+            </p>
 
-        <!-- CV Viewer & Download Section -->
-        <section class="cv-preview-box">
-            <h2><i class="fa-solid fa-file-arrow-down"></i> Download & View CV</h2>
-            <p style="margin-bottom: 20px; color: #666;">You can view my complete official CV below or click the button to download/view the image file.</p>
+            <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
             
-            <!-- یہاں آپ کی سی وی کی تصویر ڈسپلے ہوگی -->
-            <img src="file_000000009b888208a3551fae3554579c.png" alt="Imran Masood CV" class="cv-image">
-            
-            <br>
-            <!-- ڈاؤن لوڈ بٹن -->
-            <a href="file_000000009b888208a3551fae3554579c.png" download="Imran_Masood_CV.png" class="btn">
-                <i class="fa-solid fa-download"></i> Download CV (Image)
-            </a>
-        </section>
-
-        <!-- Profile / About Section -->
-        <section>
-            <h2><i class="fa-solid fa-user"></i> Profile</h2>
-            <p>A motivated and well-organized professional with strong communication and interpersonal skills. Experienced in handling front desk operations, welcoming visitors, managing calls, and providing excellent customer service. Adept at multitasking in a fast-paced environment while maintaining professionalism and confidentiality.</p>
-        </section>
-
-        <!-- Work Experience Section -->
-        <section>
-            <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
-            
-            <div class="job-item">
-                <div class="job-title">Receptionist <span style="float: right; font-weight: normal; font-size: 0.9rem; color: #666;">2023 – 2024 (1 Year)</span></div>
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Receptionist</h3>
+                    <span>2023 – 2024 (1 Year)</span>
+                </div>
                 <div class="company-name">PTCL Company, Islamabad</div>
-                <ul class="details-list">
+                <ul class="experience-details">
                     <li>Managed front desk operations and welcomed visitors.</li>
                     <li>Handled incoming calls and directed them to the relevant departments.</li>
                     <li>Assisted in managing schedules, appointments, and meetings.</li>
@@ -289,86 +343,43 @@
                 </ul>
             </div>
 
-            <hr style="border: 0; border-top: 1px dashed #ddd; margin: 20px 0;">
-
-            <div class="job-item">
-                <div class="job-title">Electrical Engineer (Supervisor) <span style="float: right; font-weight: normal; font-size: 0.9rem; color: #666;">2016 – 2021 (5 Years)</span></div>
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Electrical Engineer (Supervisor)</h3>
+                    <span>2016 – 2021 (5 Years)</span>
+                </div>
                 <div class="company-name">Nayatel Company, Islamabad</div>
-                <ul class="details-list">
+                <ul class="experience-details">
                     <li>Supervised and coordinated electrical and networking projects.</li>
                     <li>Ensured quality control and timely completion of assigned tasks.</li>
                     <li>Worked closely with team members to achieve project goals.</li>
                     <li>Maintained technical documentation and reports.</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- Education Section -->
-        <section>
-            <h2><i class="fa-solid fa-graduation-cap"></i> Education & Certifications</h2>
-            <div class="edu-item" style="margin-bottom: 15px;">
-                <div class="job-title">3 Year DAE in Electrical Engineering</div>
-                <div class="company-name">Islamabad Model School for boys (2001–2012)</div>
+            <div class="section-title"><i class="fas fa-id-card"></i> Personal Information</div>
+            <div class="personal-info-grid">
+                <div class="label">Father’s Name</div>
+                <div>Masood Khan</div>
+                <div class="label">Date of Birth</div>
+                <div>20 October 1995</div>
+                <div class="label">CNIC</div>
+                <div>15402-6512289-7</div>
+                <div class="label">Nationality</div>
+                <div>Pakistani</div>
+                <div class="label">Marital Status</div>
+                <div>Single</div>
+                <div class="label">Religion</div>
+                <div>Islam</div>
             </div>
-            <div class="edu-item" style="margin-bottom: 15px;">
-                <div class="job-title">Polytechnic Diploma</div>
-                <div class="company-name">Bhara Khu Poly Technical College ISB (2012–2015)</div>
-            </div>
-            <div class="edu-item">
-                <div class="job-title">Professional Certificate</div>
-                <div class="company-name">Al-Wadood Institute of Professional Studies, Islamabad (2012)</div>
-            </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section>
-            <h2><i class="fa-solid fa-gears"></i> Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Excellent Communication</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Customer Service & Handling</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Front Desk Management</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Telephone & Email Handling</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Visitor Management</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Microsoft Office (Word, Excel)</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Time Management</div>
-                <div class="skill-tag"><i class="fa-solid fa-check"></i> Problem Solving & Multi-tasking</div>
+            <div class="section-title"><i class="fas fa-users"></i> References</div>
+            <div class="references-box">
+                References will be furnished on demand.
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section>
-            <h2><i class="fa-solid fa-address-book"></i> Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <strong>Address</strong>
-                        <p style="font-size: 0.9rem; color: #555;">132kv Grid Station, Bhara Khu, Islamabad</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <strong>Phone</strong>
-                        <p style="font-size: 0.9rem; color: #555;">0305-505-4165<br>0319-071-8351</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p style="font-size: 0.9rem; color: #555;">imran223344@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        </main>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Imran Masood. All Rights Reserved. Designed for Professional Portfolio.</p>
-    </footer>
 
 </body>
 </html>
+
